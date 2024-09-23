@@ -1,0 +1,89 @@
+.bet {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 100%;
+    height: 130px;
+    background-color: rgb(18, 18, 18);
+    box-shadow: rgba(18, 18, 18, 0.72) 0px 8px 16px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.bet-header {
+    max-width: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 70px;
+    background-color: #222222;
+    box-shadow: rgba(18, 18, 18, 0.72) 0px 8px 16px;
+}
+.bet-header div {
+    display: flex;
+    align-items: center;
+}
+.result {
+    color: rgb(17, 194, 120);
+    font-weight: bold
+}
+.lose {
+    color: red;
+}
+.type {
+    margin-left: 10px;
+    color: #707070;
+}
+.id {
+    color: #707070;
+    margin-right: 20px;
+}
+
+.bet-main {
+    max-width: 100%;
+    height: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bet-wrapper {
+    display: flex;
+    align-items: end;
+}
+.score {
+    margin-left: 20px;
+}
+.score .title {
+    font-size: 20px;
+}
+.score .names {
+    margin-top: 5px;
+    color: #707070;
+}
+.tennis img {
+    width: 35px;
+}
+.bet-wrapper:last-child {
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.bet-wrapper:last-child div {
+    display: flex;
+    flex-direction: column;
+}
+.bet-wrapper-item .number {
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.bet-wrapper span {
+    color: #707070;
+}
+.win {
+    color: rgb(17, 194, 120);;
+}

@@ -1,0 +1,20 @@
+.toolbar-item {
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+.toolbar-item:hover {
+    background: #0e0e0e;
+}
+.selected {
+    background: #0e0e0e;
+}
+.toolbar-item .icon {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+}
+.toolbar-item .text {
+    margin-left: 10px;
+}

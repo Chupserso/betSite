@@ -1,0 +1,85 @@
+.header {
+    height: 80px;
+    background-color: rgb(18, 18, 18);
+    box-shadow: rgba(18, 18, 18, 0.72) 0px 8px 16px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 100;
+    transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+.header div:first-child {
+    display: flex;
+}
+.header .logo img {
+    width: 134px;
+}
+.header .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header .logo span {
+    font-family: Gilroy, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    display: block;
+    margin: 7px 0px 0px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    transition: color 0.25s ease-in-out;
+}
+.header .menu {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+.header .menu .menu-item {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0px 24px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.header div:last-child{
+    display: flex;
+}
+.header .balance-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header .balance {
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #222222;
+    padding-right: 20px;
+}
+.header .arrow-img {
+    margin-left: 10px;
+}
+.header .money {
+    font-size: 20px;
+    font-weight: bold;
+}
+.header .balance-info span:last-child {
+    font-size: 13px;
+    color: #707070;
+    font-weight: bold;
+}
+.icons {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.icons img:last-child {
+    cursor: pointer;
+    margin-left: 20px;
+}
