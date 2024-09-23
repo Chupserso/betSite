@@ -1,0 +1,8 @@
+.app {
+    color: rgb(255, 255, 255) !important;
+    background-color: rgb(1, 1, 1) !important;
+}
+.app-light {
+    color: rgb(13, 13, 13) !important;
+    background-color: rgb(232, 233, 237) !important;
+}

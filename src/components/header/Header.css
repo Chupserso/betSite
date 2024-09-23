@@ -83,3 +83,17 @@
     cursor: pointer;
     margin-left: 20px;
 }
+
+.header-light {
+    background: #fff;
+    box-shadow: none;
+}
+.header-light span {
+    color: rgb(13, 13, 13);
+}
+.header-light .menu .menu-item {
+    color: rgb(13, 13, 13);
+}
+.header-light .logo span {
+    color: rgb(13, 13, 13);
+}

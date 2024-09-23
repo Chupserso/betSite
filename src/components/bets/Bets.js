@@ -2,10 +2,10 @@ import "./Bets.css";
 import { Bet } from "../bet/Bet";
 
 export const Bets = (props) => {
-    const {data} = props;
+    const {data, isLightTheme} = props;
 
     const bets = data.map(bet => {
-        return <Bet id={bet.id}
+        return <Bet isLightTheme={isLightTheme} id={bet.id}
         type={bet.type}
         score={bet.score}
         result={bet.result}

@@ -18,3 +18,9 @@
 .toolbar-item .text {
     margin-left: 10px;
 }
+.app-light .selected {
+    background: #e0e0e0;
+}
+.app-light .toolbar-item:hover {
+    background: #e0e0e0;
+}

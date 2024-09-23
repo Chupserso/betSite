@@ -66,6 +66,7 @@ export const Form = (props) => {
         setModalDate("");
         setLastText("");
         setLastNumber("");
+        setWin("");
     }
 
     const onDeleteForm = (e) => {

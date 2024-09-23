@@ -30,3 +30,12 @@ hr {
     width: 150px;
     border-bottom: 1px solid yellow;
 }
+.app-light .bets-block .menu-item:last-child {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    border-bottom: 1px solid red;
+}
+.app-light .bets-block .menu {
+    border-bottom: 2px solid #c6c6c6;
+}

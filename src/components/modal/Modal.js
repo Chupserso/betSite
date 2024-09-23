@@ -1,11 +1,11 @@
 import "./Modal.css";
 import closeImg from "../../resources/img/close.svg";
-import tennisImg from "../../resources/img/tennis.svg";
 import copyImg from "../../resources/img/copy.svg";
 import arrowImg from "../../resources/img/arrowModal.svg";
 
 export const Modal = (props) => {
     const {
+        finalTennisImg,
         setIsModal,
         id,
         type,
@@ -49,7 +49,7 @@ export const Modal = (props) => {
             <div className="modal-wrapper">
                 <div className="modal-header">
                     <div>
-                        <img src={tennisImg} alt="tennis" />
+                        {finalTennisImg}
                         <h2 className="modal-title">{type}</h2>
                     </div>
                     <img className="close" onClick={onClose} src={closeImg} alt="close" />
@@ -85,7 +85,7 @@ export const Modal = (props) => {
                 </div>
                 <div className="modal-main">
                     <div>
-                        <img src={tennisImg} alt="tennis" />
+                        {finalTennisImg}
                     </div>
                     <div className="modal-info">
                         <div className="modal-info-item">

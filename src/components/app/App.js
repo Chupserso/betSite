@@ -11,15 +11,19 @@ export const App = () => {
         localStorage.setItem("data", JSON.stringify([]));
     }
 
+    const [isLightTheme, setIsLightTheme] = useState(false);
     const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
 
     localStorage.removeItem("data");
     localStorage.setItem("data", JSON.stringify(data));
 
+    const appCLassName = isLightTheme == true ? " app-light" : "";
+
+
     return (
-        <div className="app">
-            <Header />
-            <PersonalAccount data={data} />
+        <div className={"app" + appCLassName}>
+            <Header isLightTheme={isLightTheme} setIsLightTheme={setIsLightTheme} />
+            <PersonalAccount isLightTheme={isLightTheme} data={data} />
             <Form data={data} setData={setData} />
         </div>
     );

@@ -1,23 +1,29 @@
 import "./Header.css";
 import logoImg from "../../resources/img/logo.svg";
 import profileImg from "../../resources/img/profile.svg";
+import profileLightImg from "../../resources/img/profileLight.svg";
 import notificationImg from "../../resources/img/notification.svg";
 import arrowImg from "../../resources/img/arrow.svg";
 import { DropMenu } from "../dropMenu/DropMenu";
 import { useState } from "react";
 
-export const Header = () => {
+export const Header = (props) => {
+    const {isLightTheme, setIsLightTheme} = props;
     const [isOpen, setIsOpen] = useState(false);
 
-    const dropMenu = isOpen == true ? <DropMenu /> : null;
+    const dropMenu = isOpen == true ? <DropMenu isLightTheme={isLightTheme} setIsLightTheme={setIsLightTheme} /> : null;
 
     const onProfile = () => {
         setIsOpen(!isOpen);
     }
 
+    const headerClassName = isLightTheme == true ? " header-light" : "";
+
+    const finalProfileImg = isLightTheme == true ? <img src={profileLightImg} onClick={onProfile} width="20" height="20" alt="profile" /> : <img src={profileLightImg} onClick={onProfile} width="20" height="20" alt="profile" />;
+
     return (
         <>
-            <header className="header">
+            <header className={"header" + headerClassName}>
                 <div>
                     <div className="logo">
                         <img src={logoImg} alt="logo" />
@@ -42,7 +48,7 @@ export const Header = () => {
                     </div>
                     <div className="icons">
                         <img src={notificationImg} width="16" height="19" alt="notification" />
-                        <img src={profileImg} onClick={onProfile} width="20" height="20" alt="profile" />
+                        {finalProfileImg}
                     </div>
                 </div>
             </header>

@@ -73,3 +73,10 @@
 .toolbar-theme-item img {
     width: 50px;
 }
+.app-light .drop-menu {
+    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+}
+.app-light .toolbar-item .text {
+    color: #000;
+}

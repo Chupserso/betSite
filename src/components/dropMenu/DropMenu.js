@@ -8,22 +8,21 @@ import phoneImg from "../../resources/img/phone.svg";
 import moonImg from "../../resources/img/moon.svg";
 import moonBlackImg from "../../resources/img/moonBlack.svg";
 import { ToolbarItem } from "../toolbarItem/ToolbarItem";
-import { useState } from "react";
 
 export const DropMenu = (props) => {
-    const [isDarkTheme, setIsDarkTheme] = useState(true);
+    const {isLightTheme, setIsLightTheme} = props;
 
     const onChange = () => {
-        setIsDarkTheme(!isDarkTheme);
+        setIsLightTheme(!isLightTheme);
     }
 
-    const moon = isDarkTheme == true ? <img src={moonImg} alt="moon" /> : <img src={moonBlackImg} alt="moon" />;
+    const moon = isLightTheme == false ? <img src={moonImg} alt="moon" /> : <img src={moonBlackImg} alt="moon" />;
 
     let styles;
-    if (isDarkTheme) {
-        styles = {transform: "translateX(0%)"};
-    } else {
+    if (isLightTheme) {
         styles = {transform: "translateX(100%)"};
+    } else {
+        styles = {transform: "translateX(0%)"};
     }
 
     return (

@@ -87,3 +87,11 @@
 .win {
     color: rgb(17, 194, 120);;
 }
+.app-light .bet {
+    background-color: #fff;
+    box-shadow: none;
+}
+.app-light .bet-header {
+    background-color: rgb(224, 224, 224);
+    box-shadow: none;
+}

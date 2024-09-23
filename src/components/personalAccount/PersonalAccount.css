@@ -1,5 +1,6 @@
 .personal-account {
-    margin: 100px auto;
+    padding-top: 100px;
+    margin: 0 auto;
     width: 95%;
     display: flex;
 }

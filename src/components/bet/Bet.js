@@ -1,5 +1,6 @@
 import "./Bet.css";
 import tennisImg from "../../resources/img/tennis.svg";
+import tennisLightImg from "../../resources/img/tennisLight.svg";
 import arrowRightImg from "../../resources/img/arrowRight.svg";
 import { Modal } from "../modal/Modal";
 import { useState } from "react";
@@ -26,10 +27,21 @@ export const Bet = (props) => {
         modalDate,
         lastText,
         betNumber,
-        lastNumber
+        lastNumber,
+        isLightTheme
     } = props;
 
+    const onBet = () => {
+        setIsModal(!isModal);
+    }
+
+    const loseCLassName = result == "Проигрыш" ? " lose" : "";
+    const winCLassName = result == "Выигрыш" ? " win" : "";
+
+    const finalTennisImg = isLightTheme == true ? <img src={tennisLightImg} alt="tennis" /> : <img src={tennisImg} alt="tennis" />;
+
     const modal = isModal == true ? <Modal
+    finalTennisImg={finalTennisImg}
     setIsModal={setIsModal}
     id={id}
     betNumber={betNumber}
@@ -51,13 +63,6 @@ export const Bet = (props) => {
     lastText={lastText}
     lastNumber={lastNumber} /> : null;
 
-    const onBet = () => {
-        setIsModal(!isModal);
-    }
-
-    const loseCLassName = result == "Проигрыш" ? " lose" : "";
-    const winCLassName = result == "Выигрыш" ? " win" : "";
-
     return (
         <>
             { modal }
@@ -75,7 +80,7 @@ export const Bet = (props) => {
                 <div className="bet-main">
                     <div className="bet-wrapper">
                         <div className="tennis">
-                            <img src={tennisImg} alt="tennis" />
+                            {finalTennisImg}
                         </div>
                         <div className="score">
                             <div className="title">Счет матча {score}</div>
