@@ -95,3 +95,6 @@
     background-color: rgb(224, 224, 224);
     box-shadow: none;
 }
+.bet-wrapper-item {
+    width: 100px;
+}

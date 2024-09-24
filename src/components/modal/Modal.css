@@ -40,6 +40,10 @@
     font-size: 18px;
     margin-left: 15px;
 }
+.bet-center {
+    display: flex;
+    align-items: center;
+}
 .bet-header-modal {
     height: 50px;
 }
