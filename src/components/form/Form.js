@@ -147,9 +147,6 @@ export const Form = (props) => {
                 <label>Сама ставка</label>
                 <input type="text" value={bet} placeholder="Text" onChange={(e) => setBet(e.target.value)} />
 
-                <label>Цифра возле ставки</label>
-                <input type="text" value={betNumber} placeholder="Text" onChange={(e) => setBetNumber(e.target.value)} />
-
                 <label>Выигрыш</label>
                 <input type="text" value={win} placeholder="Если проиграшная то ставим -" onChange={(e) => setWin(e.target.value)} />
                 
@@ -183,9 +180,6 @@ export const Form = (props) => {
 
                 <label>Последняя строчка в модальном окне</label>
                 <input type="text" value={lastText} placeholder="Пример 2-й сет Счет: 11:7"  onChange={(e) => setLastText(e.target.value)} />
-
-                <label>Последняя Цифра в модальном окне</label>
-                <input type="text" value={lastNumber} placeholder="Пример 10" onChange={(e) => setLastNumber(e.target.value)} />
 
                 <input type="submit" className="create-btn" value="Создать" />
             </form>

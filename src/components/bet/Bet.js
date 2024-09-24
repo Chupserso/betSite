@@ -63,6 +63,8 @@ export const Bet = (props) => {
     lastText={lastText}
     lastNumber={lastNumber} /> : null;
 
+    const winRuble = result == "Выигрыш" ? " ₽" : "";
+
     return (
         <>
             { modal }
@@ -98,7 +100,7 @@ export const Bet = (props) => {
                         </div>
                         <div className="bet-wrapper-item">
                             <span>Выигрыш</span>
-                            <div className={"number" + winCLassName}>{win} ₽</div>
+                            <div className={"number" + winCLassName}>{win} {winRuble}</div>
                         </div>
                         <img src={arrowRightImg} alt="arrow" />
                     </div>

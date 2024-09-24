@@ -81,7 +81,7 @@ export const Modal = (props) => {
                     <div>
                         <span className="modal-span">Ставка {span}</span>
                     </div>
-                    <div>{betNumber}</div>
+                    <div>{coef}</div>
                 </div>
                 <div className="modal-main">
                     <div>
@@ -109,7 +109,7 @@ export const Modal = (props) => {
                         </div>
                         <div className="modal-info-item">
                             <span className="modal-span">{lastText}</span>
-                            <span className="modal-span">{lastNumber}</span>
+                            <span className="modal-span">{coef}</span>
                         </div>
                     </div>
                 </div>
