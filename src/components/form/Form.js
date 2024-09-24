@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./Form.css";
+import { BetForm } from "../betForm/BetForm";
 
 export const Form = (props) => {
-    const {data, setData} = props;
+    const {data, setData, setBalance, balance} = props;
 
     const [id, setID] = useState("");
-    const [result, setResult] = useState("");
+    const [checked, setChecked] = useState(true);
     const [type, setType] = useState("");
     const [score, setScore] = useState("");
     const [names, setNames] = useState("");
@@ -24,9 +25,45 @@ export const Form = (props) => {
     const [lastText, setLastText] = useState("");
     const [lastNumber, setLastNumber] = useState("");
     const [deleteID, setDeleteID] = useState("");
+    const [balanceInput, setBalanceInput] = useState(balance);
+
+    const forms = data.map(item => {
+        return (
+            <BetForm
+            data={data}
+            idProps={item.id}
+            setData={setData}
+            typeProps={item.type}
+            scoreProps={item.score}
+            resultProps={item.result}
+            namesProps={item.names}
+            coefProps={item.coef}
+            betProps={item.bet}
+            winProps={item.win}
+            dateProps={item.date}
+            winningProps={item.winning}
+            actionsProps={item.actions}
+            sportProps={item.sport}
+            leagueProps={item.league}
+            scoresProps={item.scores}
+            setProps={item.set}
+            betNumberProps={item.betNumber}
+            modalDateProps={item.modalDate}
+            lastTextProps={item.lastText}
+            lastNumberProps={item.lastNumber}
+            />
+        );
+    })
 
     const onForm = (e) => {
         e.preventDefault();
+        let result;
+        if (checked == true) {
+            result = "Выигрыш"
+        } else {
+            result = "Проигрыш"
+        }
+
         setData([...data, {
             id,
             type,
@@ -49,7 +86,6 @@ export const Form = (props) => {
             lastNumber,
         }]);
         setID("");
-        setResult("");
         setType("");
         setScore("");
         setNames("");
@@ -68,6 +104,17 @@ export const Form = (props) => {
         setLastNumber("");
         setWin("");
     }
+    
+    function handleChange() {
+		setChecked(!checked);
+	}
+
+    const onBalance = (e) => {
+        setBalanceInput(e.target.value);
+        setBalance(e.target.value);
+        localStorage.removeItem("balance");
+        localStorage.setItem("balance", e.target.value);
+    }
 
     const onDeleteForm = (e) => {
         e.preventDefault();
@@ -77,8 +124,11 @@ export const Form = (props) => {
     }
 
     return (
-        <>
+        <div className="forms">
             <form method="post" onSubmit={onForm}>
+                <label>Баланс</label>
+                <input type="text" value={balanceInput} placeholder="Text" onChange={onBalance} />
+
                 <label>Тип ставки</label>
                 <input type="text" value={type} placeholder="Text" onChange={(e) => setType(e.target.value)} />
 
@@ -106,10 +156,10 @@ export const Form = (props) => {
                 <label>Дата</label>
                 <input type="text" value={date} placeholder="Пример 9 сентября, 16:07" onChange={(e) => setDate(e.target.value)} />
 
-                <label>Выигрыш / Проигрыш</label>
-                <input type="text" value={result} placeholder="С большой буквы: Выигрыш/Проигрыш" onChange={(e) => setResult(e.target.value)} />
+                <label>Выигрыш?</label>
+                <input type="checkbox" onChange={handleChange} checked={checked} />
 
-                <label>Сколкьо событий</label>
+                <label>Сколько событий</label>
                 <input type="text" value={actions} placeholder="Text"  onChange={(e) => setActions(e.target.value)} />
 
                 <label>Вид спорта</label>
@@ -144,6 +194,7 @@ export const Form = (props) => {
                 <input type="text" placeholder="ID ставки для удаления" value={deleteID} onChange={(e) => setDeleteID(e.target.value)} />
                 <input type="submit" className="delete-btn" value="Удалить" />
             </form>
-        </>
+            {forms}
+        </div>
     );
 }

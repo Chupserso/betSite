@@ -8,7 +8,7 @@ import { DropMenu } from "../dropMenu/DropMenu";
 import { useState } from "react";
 
 export const Header = (props) => {
-    const {isLightTheme, setIsLightTheme} = props;
+    const {isLightTheme, setIsLightTheme, balance, setBalance} = props;
     const [isOpen, setIsOpen] = useState(false);
 
     const dropMenu = isOpen == true ? <DropMenu isLightTheme={isLightTheme} setIsLightTheme={setIsLightTheme} /> : null;
@@ -41,7 +41,7 @@ export const Header = (props) => {
                 <div>
                     <div className="balance">
                         <div className="balance-info">
-                            <span className="money">15 572 ₽</span>
+                            <span className="money">{balance} ₽</span>
                             <span>Игра на деньги</span>
                         </div>
                         <img src={arrowImg} className="arrow-img" width="16" height="10" alt="arrow" />

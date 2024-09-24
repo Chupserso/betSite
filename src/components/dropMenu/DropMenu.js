@@ -19,7 +19,7 @@ export const DropMenu = (props) => {
     const moon = isLightTheme == false ? <img src={moonImg} alt="moon" /> : <img src={moonBlackImg} alt="moon" />;
 
     let styles;
-    if (isLightTheme) {
+    if (!isLightTheme) {
         styles = {transform: "translateX(100%)"};
     } else {
         styles = {transform: "translateX(0%)"};
