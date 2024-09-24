@@ -3,6 +3,10 @@
   src: url(./resources/fonts/gilroy/Gilroy-Light.ttf);
 }
 
+* {
+  font-family: Gilroy;
+}
+
 body {
   margin: 0;
   font-family: Lato, Arial, "Helvetica Neue", Helvetica, sans-serif;
