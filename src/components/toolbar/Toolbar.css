@@ -1,14 +1,13 @@
 .toolbar {
     width: 450px;
-    padding: 20px 0;
+    padding: 10px 0;
     padding-bottom: 10px;
     background-color: rgb(18, 18, 18);
     box-shadow: rgba(18, 18, 18, 0.72) 0px 8px 16px;
     border-radius: 5px;
-    height: 505px;
 }
 .toolbar .title {
-    font-size: 20px;
+    font-size: 30px;
     margin-left: 30px;
     font-weight: bold;
 }
