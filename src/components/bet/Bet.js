@@ -86,7 +86,7 @@ export const Bet = (props) => {
                             {finalTennisImg}
                         </div>
                         <div className="score">
-                            <div className="title">Счет матча {score}</div>
+                            <div className="title">{set}: Счет матча {score}</div>
                             <div className="names">{names}</div>
                         </div>
                     </div>
