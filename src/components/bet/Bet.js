@@ -54,7 +54,7 @@ export const Bet = (props) => {
             finalImg = isLightTheme == true ? <img src={footbalLightImg} alt="tennis" /> : <img src={footballImg} alt="tennis" />;
             break;
         case "Хоккей":
-            finalImg = isLightTheme == true ? <img src={hockeyLightImg} alt="tennis" /> : <img src={hockeyImg} alt="tennis" />;
+            finalImg = isLightTheme == true ? <img src={hockeyLightImg} className="hockey" alt="tennis" /> : <img src={hockeyImg} className="hockey" alt="tennis" />;
             break;
     }
 
