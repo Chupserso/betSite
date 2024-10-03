@@ -6,7 +6,6 @@ export const Form = (props) => {
     const {data, setData, setBalance, balance} = props;
 
     const [id, setID] = useState("");
-    const [checked, setChecked] = useState(true);
     const [type, setType] = useState("");
     const [score, setScore] = useState("");
     const [names, setNames] = useState("");
@@ -25,12 +24,15 @@ export const Form = (props) => {
     const [lastText, setLastText] = useState("");
     const [lastNumber, setLastNumber] = useState("");
     const [deleteID, setDeleteID] = useState("");
+    const [typeSport, setTypeSport] = useState("Теннис");
     const [balanceInput, setBalanceInput] = useState(balance);
+    const [result, setResult] = useState("Выигрыш");
 
     const forms = data.map(item => {
         return (
             <BetForm
             data={data}
+            typeSportProps={item.typeSport}
             idProps={item.id}
             setData={setData}
             typeProps={item.type}
@@ -57,15 +59,10 @@ export const Form = (props) => {
 
     const onForm = (e) => {
         e.preventDefault();
-        let result;
-        if (checked == true) {
-            result = "Выигрыш"
-        } else {
-            result = "Проигрыш"
-        }
 
         setData([...data, {
             id,
+            typeSport,
             type,
             result,
             score,
@@ -104,10 +101,6 @@ export const Form = (props) => {
         setLastNumber("");
         setWin("");
     }
-    
-    function handleChange() {
-		setChecked(!checked);
-	}
 
     const onBalance = (e) => {
         setBalanceInput(e.target.value);
@@ -129,6 +122,22 @@ export const Form = (props) => {
                 <label>Баланс</label>
                 <input type="text" value={balanceInput} placeholder="Text" onChange={onBalance} />
 
+                <label>Вид спорта?</label>
+                <select value={typeSport} onChange={(e) => {
+                    setTypeSport(e.target.value);
+                    if (e.target.value == "Теннис") {
+                        setSport("Настольный теннис");
+                    } else if (e.target.value == "Футбол") {
+                        setSport("Футбол");
+                    } else if (e.target.value == "Хоккей") {
+                        setSport("Хоккей");
+                    }
+                }}>
+                    <option value="Теннис">Теннис</option>
+                    <option value="Футбол">Футбол</option>
+                    <option value="Хоккей">Хоккей</option>
+                </select>
+
                 <label>Тип ставки</label>
                 <input type="text" value={type} placeholder="Text" onChange={(e) => setType(e.target.value)} />
 
@@ -148,13 +157,19 @@ export const Form = (props) => {
                 <input type="text" value={bet} placeholder="Text" onChange={(e) => setBet(e.target.value)} />
 
                 <label>Выигрыш</label>
-                <input type="text" value={win} placeholder="Если проиграшная то ставим -" onChange={(e) => setWin(e.target.value)} />
+                <input type="text" value={win} placeholder="Text" onChange={(e) => setWin(e.target.value)} />
                 
                 <label>Дата</label>
                 <input type="text" value={date} placeholder="Пример 9 сентября, 16:07" onChange={(e) => setDate(e.target.value)} />
 
-                <label>Выигрыш?</label>
-                <input type="checkbox" onChange={handleChange} checked={checked} />
+                <label>Статус ставки?</label>
+                <select value={result} onChange={(e) => {
+                    setResult(e.target.value);
+                }}>
+                    <option value="Проигрыш">Проигрыш</option>
+                    <option value="Выигрыш">Выигрыш</option>
+                    <option value="Не расчитан">Не расчитан</option>
+                </select>
 
                 <label>Сколько событий</label>
                 <input type="text" value={actions} placeholder="Text"  onChange={(e) => setActions(e.target.value)} />

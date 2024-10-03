@@ -5,6 +5,7 @@ export const BetForm = (props) => {
             data,
             idProps,
             typeProps,
+            typeSportProps,
             scoreProps,
             resultProps,
             namesProps,
@@ -26,6 +27,7 @@ export const BetForm = (props) => {
     } = props;
 
     const [id, setID] = useState(idProps);
+    const [typeSport, setTypeSport] = useState(typeSportProps);
     const [type, setType] = useState(typeProps);
     const [score, setScore] = useState(scoreProps);
     const [names, setNames] = useState(namesProps);
@@ -52,6 +54,7 @@ export const BetForm = (props) => {
                 updatedData[i] = {
                     id,
                     type,
+                    typeSport,
                     result,
                     score,
                     names,
@@ -79,6 +82,8 @@ export const BetForm = (props) => {
         saveData();
     }, [id,
         type,
+        typeProps,
+        typeSport,
         result,
         score,
         names,
@@ -95,10 +100,27 @@ export const BetForm = (props) => {
         set,
         modalDate,
         lastText,
-        lastNumber,]);
+        lastNumber,
+    ]);
 
     return (
         <form>
+                <label>Вид спорта?</label>
+                <select value={typeSport} onChange={(e) => {
+                    setTypeSport(e.target.value);
+                    if (e.target.value == "Теннис") {
+                        setSport("Настольный теннис");
+                    } else if (e.target.value == "Футбол") {
+                        setSport("Футбол");
+                    } else if (e.target.value == "Хоккей") {
+                        setSport("Хоккей");
+                    }
+                }}>
+                    <option value="Теннис">Теннис</option>
+                    <option value="Футбол">Футбол</option>
+                    <option value="Хоккей">Хоккей</option>
+                </select>
+
                 <label>Тип ставки</label>
                 <input type="text" value={type} placeholder="Text" onChange={(e) => {setType(e.target.value); }} />
 
@@ -118,19 +140,19 @@ export const BetForm = (props) => {
                 <input type="text" value={bet} placeholder="Text" onChange={(e) => {setBet(e.target.value); }} />
 
                 <label>Выигрыш</label>
-                <input type="text" value={win} placeholder="Если проиграшная то ставим -" onChange={(e) => {setWin(e.target.value); }} />
+                <input type="text" value={win} placeholder="Text" onChange={(e) => {setWin(e.target.value); }} />
                 
                 <label>Дата</label>
                 <input type="text" value={date} placeholder="Пример 9 сентября, 16:07" onChange={(e) => {setDate(e.target.value); }} />
 
-                <label>Выигрыш?</label>
+                <label>Статус ставки?</label>
                 <select value={result} onChange={(e) => {
                     setResult(e.target.value);
                 }}>
                     <option value="Проигрыш">Проигрыш</option>
                     <option value="Выигрыш">Выигрыш</option>
+                    <option value="Не расчитан">Не расчитан</option>
                 </select>
-                
 
                 <label>Сколько событий</label>
                 <input type="text" value={actions} placeholder="Text"  onChange={(e) => {setActions(e.target.value); }} />
@@ -148,7 +170,7 @@ export const BetForm = (props) => {
                 <label>Очки</label>
                 <input type="text" value={scores} placeholder="Пример [1:0 (11:6), 0:2, 0:1] [2nd set]" onChange={(e) => {setScores(e.target.value); }} />
 
-                <label>Сет</label>
+                <label>Сет или если не расчитанная то тип игры (Матч)</label>
                 <input type="text" value={set} placeholder="Какой сет?" onChange={(e) => {setSet(e.target.value); }} />
 
                 <label>Дата в модальном окне</label>

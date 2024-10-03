@@ -72,6 +72,9 @@
 .win-bet {
     color: rgb(17, 194, 120);
 }
+.not-calc {
+    color: #fff;
+}
 .modal-main {
     padding: 20px;
     display: flex;

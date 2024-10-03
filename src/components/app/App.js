@@ -19,6 +19,7 @@ export const App = () => {
     const [isLightTheme, setIsLightTheme] = useState(JSON.parse(localStorage.getItem("isLightTheme")));
     const [data, setData] = useState(JSON.parse(localStorage.getItem("data")));
     const [balance, setBalance] = useState(localStorage.getItem("balance"));
+    const [isCalculatedPage, setIsCalculatedPage] = useState(true);
 
     localStorage.removeItem("data");
     localStorage.setItem("data", JSON.stringify(data));
@@ -30,11 +31,12 @@ export const App = () => {
 
     const appCLassName = isLightTheme == true ? " app-light" : "";
 
+    console.log(data);
 
     return (
         <div className={"app" + appCLassName}>
             <Header isLightTheme={isLightTheme} balance={balance} setBalance={setBalance} setIsLightTheme={setIsLightTheme} />
-            <PersonalAccount isLightTheme={isLightTheme} data={data} />
+            <PersonalAccount isCalculatedPage={isCalculatedPage} setIsCalculatedPage={setIsCalculatedPage} isLightTheme={isLightTheme} data={data} />
             <Form setBalance={setBalance} balance={balance} data={data} setData={setData} />
         </div>
     );

@@ -98,3 +98,9 @@
 .bet-wrapper-item {
     width: 100px;
 }
+.not-calc {
+    color: #fff;
+}
+.app-light .not-calc {
+    color: #000;
+}

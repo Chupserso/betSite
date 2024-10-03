@@ -1,6 +1,10 @@
 import "./Bet.css";
 import tennisImg from "../../resources/img/tennis.svg";
 import tennisLightImg from "../../resources/img/tennisLight.svg";
+import footballImg from "../../resources/img/football.svg";
+import hockeyImg from "../../resources/img/hockey.svg";
+import footbalLightImg from "../../resources/img/footballLight.svg";
+import hockeyLightImg from "../../resources/img/hockeyLight.svg";
 import arrowRightImg from "../../resources/img/arrowRight.svg";
 import { Modal } from "../modal/Modal";
 import { useState } from "react";
@@ -11,7 +15,9 @@ export const Bet = (props) => {
     const {
         id,
         type,
+        typeSport,
         score,
+        notCalculated,
         result,
         names,
         coef,
@@ -38,11 +44,24 @@ export const Bet = (props) => {
     const loseCLassName = result == "Проигрыш" ? " lose" : "";
     const winCLassName = result == "Выигрыш" ? " win" : "";
 
-    const finalTennisImg = isLightTheme == true ? <img src={tennisLightImg} alt="tennis" /> : <img src={tennisImg} alt="tennis" />;
+    let finalImg;
+
+    switch (typeSport) {
+        case "Теннис":
+            finalImg = isLightTheme == true ? <img src={tennisLightImg} alt="tennis" /> : <img src={tennisImg} alt="tennis" />;
+            break;
+        case "Футбол":
+            finalImg = isLightTheme == true ? <img src={footbalLightImg} alt="tennis" /> : <img src={footballImg} alt="tennis" />;
+            break;
+        case "Хоккей":
+            finalImg = isLightTheme == true ? <img src={hockeyLightImg} alt="tennis" /> : <img src={hockeyImg} alt="tennis" />;
+            break;
+    }
 
     const modal = isModal == true ? <Modal
-    finalTennisImg={finalTennisImg}
+    finalTennisImg={finalImg}
     setIsModal={setIsModal}
+    notCalculated={notCalculated}
     id={id}
     betNumber={betNumber}
     type={type}
@@ -51,7 +70,6 @@ export const Bet = (props) => {
     names={names}
     coef={coef}
     bet={bet}
-    win={win}
     date={date}
     winning={winning}
     actions={actions}
@@ -63,8 +81,15 @@ export const Bet = (props) => {
     lastText={lastText}
     lastNumber={lastNumber} /> : null;
 
-    const winRuble = result == "Выигрыш" ? " ₽" : "";
+    const winRuble = result == "Выигрыш" || result == "Не расчитан" ? " ₽" : "";
     const winText = result == "Выигрыш" ? "Выигрыш" : "";
+
+    let winNumber = win;
+    if (result == "Проигрыш") {
+        winNumber = "-"
+    }
+
+    const notCalcClassName = result == "Не расчитан" ? "not-calc" : "";
 
     return (
         <>
@@ -72,7 +97,7 @@ export const Bet = (props) => {
             <div className="bet" onClick={onBet}>
                 <div className="bet-header">
                     <div>
-                        <div className={"result" + loseCLassName}>{result}</div> {/* добавляется класс lose */}
+                        <div className={"result" + loseCLassName + notCalcClassName}>{result}</div> {/* добавляется класс lose */}
                         <div className="type">{type}</div>
                     </div>
                     <div>
@@ -83,7 +108,7 @@ export const Bet = (props) => {
                 <div className="bet-main">
                     <div className="bet-wrapper">
                         <div className="tennis">
-                            {finalTennisImg}
+                            {finalImg}
                         </div>
                         <div className="score">
                             <div className="title">{set}: Счет : {score}</div>
@@ -101,7 +126,7 @@ export const Bet = (props) => {
                         </div>
                         <div className="bet-wrapper-item">
                             <span>{winText}</span>
-                            <div className={"number" + winCLassName}>{win} {winRuble}</div>
+                            <div className={"number" + winCLassName}>{winNumber} {winRuble}</div>
                         </div>
                         <img src={arrowRightImg} alt="arrow" />
                     </div>

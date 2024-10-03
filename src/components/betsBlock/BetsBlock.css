@@ -19,22 +19,24 @@ hr {
 }
 .bets-block .menu-item {
     padding-bottom: 20px;
-    margin-right: 10px;
 }
-.bets-block .menu-item:first-child {
+.bets-block .menu-item {
+    cursor: pointer;
     color: #666666;
-}
-.bets-block .menu-item:last-child {
     display: flex;
     justify-content: center;
+    user-select: none;
     width: 150px;
+}
+.bets-block .selected {
     border-bottom: 1px solid yellow;
+    background: none;
+    color: #fff;
 }
-.app-light .bets-block .menu-item:last-child {
-    display: flex;
-    justify-content: center;
-    width: 150px;
+.app-light .bets-block .selected {
     border-bottom: 1px solid red;
+    color: #353535;
+    background: none;
 }
 .app-light .bets-block .menu {
     border-bottom: 2px solid #c6c6c6;

@@ -32,17 +32,29 @@ export const Modal = (props) => {
         setIsModal(false);
     }
 
+    const spanClassName = result == "Не расчитан" ? "not-calc" : "";
+
     const WinSpan = () => {
         return (
             <>
-                <span className="default-price">{bet + " ₽"}</span><img src={arrowImg} alt="arrow" /><span className="modal-bet win-bet">{winning + " ₽"}</span>
+                <span className="default-price">{bet + " ₽"}</span><img src={arrowImg} alt="arrow" /><span className={"modal-bet win-bet " + spanClassName}>{winning + " ₽"}</span>
             </>
         )
     }
 
 
-    const span = result == "Выигрыш" ? <WinSpan /> : <span className="modal-bet lose-bet">{bet + " ₽"}</span>;
-    const resultBlock = result == "Выигрыш" ? <div className="result">Выигрыш</div> : <div className="result lose">Проигрыш</div>;
+    const span = result == "Выигрыш" || result == "Не расчитан" ? <WinSpan /> : <span className="modal-bet lose-bet">{bet + " ₽"}</span>;
+    
+    let resultBlock;
+    if (result == "Выигрыш") {
+        resultBlock = <div className="result">Выигрыш</div>;
+    } else if (result == "Проигрыш") {
+        resultBlock = <div className="result lose">Проигрыш</div>;
+    } else if (result == "Не расчитан") {
+        resultBlock = <div className="result not-calc">Не расчитан</div>;
+    }
+
+    const scoreBlock = result != "Не расчитан" ? <div className="modal-info-item"><span className="modal-span">{scores}</span></div> : "";
 
     return (
         <div className="modal">
@@ -98,9 +110,9 @@ export const Modal = (props) => {
                         <div className="modal-info-item">
                             <span className="modal-span">{league}</span>
                         </div>
-                        <div className="modal-info-item">
-                            <span className="modal-span">{scores}</span>
-                        </div>
+
+                        {scoreBlock}
+
                         <div className="modal-info-item">
                             <span className="modal-span">{set}</span>
                         </div>
