@@ -142,7 +142,7 @@ export const Form = (props) => {
                 <input type="text" value={type} placeholder="Text" onChange={(e) => setType(e.target.value)} />
 
                 <label>ID ставки</label>
-                <input type="text" value={id} placeholder="Text" onChange={(e) => setID(e.target.value)} />
+                <input type="text" value={id} placeholder="Text" onChange={(e) => setID(e.target.value)} required />
 
                 <label>Счет матча</label>
                 <input type="text" value={score} placeholder="Пример 3:1" onChange={(e) => setScore(e.target.value)} />
