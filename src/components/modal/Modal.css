@@ -113,6 +113,12 @@
     font-weight: bold;
     margin-left: 5px;
 }
+.modal-header img {
+    width: 40px;
+}
+.modal-main div:first-child img {
+    width: 40px;
+}
 .lose-bet {
     margin-left: 5px;
 }
