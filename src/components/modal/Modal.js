@@ -54,8 +54,6 @@ export const Modal = (props) => {
         resultBlock = <div className="result not-calc">Не расчитан</div>;
     }
 
-    const scoreBlock = result != "Не расчитан" ? <div className="modal-info-item"><span className="modal-span">{scores}</span></div> : "";
-
     return (
         <div className="modal">
             <div className="modal-wrapper">
@@ -111,7 +109,7 @@ export const Modal = (props) => {
                             <span className="modal-span">{league}</span>
                         </div>
 
-                        {scoreBlock}
+                        <div className="modal-info-item"><span className="modal-span">{scores}</span></div>
 
                         <div className="modal-info-item">
                             <span className="modal-span">{set}</span>
