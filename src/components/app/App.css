@@ -1,4 +1,6 @@
 .app {
+    margin: 0 auto;
+    width: 1450px;
     color: rgb(255, 255, 255) !important;
     background-color: rgb(1, 1, 1) !important;
 }

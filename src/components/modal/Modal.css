@@ -3,7 +3,7 @@
     width: 600px;
     position: fixed;
     z-index: 101;
-    right: 0;
+    right: 30px;
     height: 100%;
     background-color: rgb(28, 28, 28);
     box-shadow: rgba(18, 18, 18, 0.72) 0px 8px 16px;
@@ -106,6 +106,7 @@
     margin-left: -5px;
 }
 .modal hr {
+    width: 99.8%;
     border: 1px solid #313131;
 }
 .default-price {
