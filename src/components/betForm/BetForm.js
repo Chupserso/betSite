@@ -23,7 +23,8 @@ export const BetForm = (props) => {
             lastTextProps,
             betNumberProps,
             lastNumberProps,
-            setData
+            setData,
+            moveUp, moveDown,
     } = props;
 
     const [id, setID] = useState(idProps);
@@ -103,8 +104,19 @@ export const BetForm = (props) => {
         lastNumber,
     ]);
 
+    const isFirst = data.findIndex((item) => item.id === idProps) === 0;
+    const isLast = data.findIndex((item) => item.id === idProps) === data.length - 1;
+
     return (
         <form>
+                <div>
+                    <button type="button" onClick={moveUp} disabled={isFirst}>
+                        Вверх
+                    </button>
+                    <button type="button" onClick={moveDown} disabled={isLast}>
+                        Вниз
+                    </button>
+                </div>
                 <label>Вид спорта?</label>
                 <select value={typeSport} onChange={(e) => {
                     setTypeSport(e.target.value);

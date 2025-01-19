@@ -28,6 +28,38 @@ export const Form = (props) => {
     const [balanceInput, setBalanceInput] = useState(balance);
     const [result, setResult] = useState("Выигрыш");
 
+    const moveUp = (id) => {
+        setData((prevData) => {
+            // Найти индекс элемента
+            const index = prevData.findIndex((item) => item.id === id);
+    
+            // Если элемент уже первый, ничего не делаем
+            if (index <= 0) return prevData;
+    
+            // Создаем копию массива и меняем местами элементы
+            const updatedData = [...prevData];
+            [updatedData[index], updatedData[index - 1]] = [updatedData[index - 1], updatedData[index]];
+    
+            return updatedData; // Возвращаем обновленный массив
+        });
+    };
+    
+    const moveDown = (id) => {
+        setData((prevData) => {
+            // Найти индекс элемента
+            const index = prevData.findIndex((item) => item.id === id);
+    
+            // Если элемент уже последний, ничего не делаем
+            if (index < 0 || index >= prevData.length - 1) return prevData;
+    
+            // Создаем копию массива и меняем местами элементы
+            const updatedData = [...prevData];
+            [updatedData[index], updatedData[index + 1]] = [updatedData[index + 1], updatedData[index]];
+    
+            return updatedData; // Возвращаем обновленный массив
+        });
+    };
+
     const forms = data.map(item => {
         return (
             <BetForm
@@ -53,6 +85,8 @@ export const Form = (props) => {
             modalDateProps={item.modalDate}
             lastTextProps={item.lastText}
             lastNumberProps={item.lastNumber}
+            moveUp={() => moveUp(item.id)}
+            moveDown={() => moveDown(item.id)}
             />
         );
     })
